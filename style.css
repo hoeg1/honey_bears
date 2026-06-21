@@ -1,0 +1,271 @@
+
+/* 🐻 */
+
+.bearRed { color: crimson;}
+.bearRed:before { content: "A"; }
+.bearBlue { color: mediumblue; }
+.bearBlue:before { content: "S"; }
+.bearGreen { color: darkgreen; }
+.bearGreen:before { content: "D"; }
+.bearYellow { color: sienna; }
+.bearYellow:before { content: "F"; }
+
+.wild {
+  background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-animation 5s ease infinite;
+  border: 2px dotted gainsboro;
+}
+
+@keyframes rainbow-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.wild:after { content: "🐻"; font-size: 2svmin; }
+
+.red {
+  color: red;
+  border: 2px solid crimson;
+}
+.red:after { content: "A";  font-size: 3svmin; }
+.blue {
+  color: royalblue;
+  border: 2px solid mediumblue;
+}
+.blue:after { content: "S"; font-size: 3svmin; }
+.green {
+  color: seagreen;
+  border: 2px solid darkgreen;
+}
+.green:after { content: "D";  font-size: 3svmin; }
+.yellow {
+  color: peru;
+  border: 2px solid sienna;
+}
+.yellow:after { content: "F";  font-size: 3svmin; }
+
+.player-hands {
+  height: 22svmin;
+}
+
+.card {
+  width: 7svmin;
+  height: 10svmin;
+  border-radius: 1svmin;
+  text-align: center;
+  font-size: 7svmin;
+  font-family: "Georgia";
+  line-height: 0.5;
+  cursor: pointer;
+  padding: 0;
+  background-color: white;
+  margin: 0 0.5svmin 1svmin;
+}
+
+.one:before {
+  content: "1\A";
+  white-space: pre-wrap;
+}
+.two:before {
+  content: "2\A";
+  white-space: pre-wrap;
+}
+
+/* table */
+.board {
+  border-collapse: collapse;
+  border: 2px solid rgb(8, 8, 8);
+  letter-spacing: 1px;
+  font-family: "Georgia";
+  font-size: 2.5svmin;
+}
+
+.board thead {
+  background-color: burlywood;
+}
+
+.board th, td {
+  border: 1px solid silver;
+  width: 6svmin;
+  height: 6svmin;
+}
+
+.board td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+/* SCORE DIALOG */
+
+.score-dlg { width: 95%; }
+
+summary {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.score-dlg-cont {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.score-msg table {
+  border-collapse: collapse;
+  border: 2px solid rgb(8, 8, 8);
+  letter-spacing: 1px;
+  font-family: "Georgia";
+  font-size: 2.5svmin;
+  margin-bottom: 2rem;
+}
+
+.score-msg thead {
+  background-color: burlywood;
+}
+
+.score-msg th, td {
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid silver;
+  height: 2rem;
+}
+
+.score-name {
+  width: 10rem;
+  text-align: center;
+}
+
+.score-hands {
+  width: 20rem;
+  text-align: left;
+}
+
+.score-pt {
+  width: 3rem;
+  text-align: right;
+}
+.score-pt:before {
+  content: "+";
+}
+
+.score-total {
+  width: 4rem;
+  text-align: right;
+}
+.score-total:after {
+  content: "vp";
+}
+
+.wild-sel-modal {
+  text-align: center;
+}
+
+
+.report-table {
+  width: 99%;
+  margin-top: 1em;
+  border: 1px solid gray;
+  border-collapse: collapse;
+  font-family: "Verdana";
+  letter-spacing: 1px;
+  color: saddlebrown;
+}
+.report-table tr {
+  height: 2em;
+  padding: 0;
+  margin: 0;
+}
+.report-table th {
+  border: 1px solid gray;
+  height: 2em;
+  background-color: lemonchiffon;
+  text-align: right;
+  width: 30%;
+  padding: 0 5px 0 0;
+  margin: 0;
+}
+.report-table td {
+  border: 1px solid gray;
+  height: 2em;
+  background-color: white;
+  text-align: left;
+  padding: 0 0 0 5px;
+  margin: 0;
+  width: 70%;
+}
+.report-table p {
+  padding: 0;
+  margin: 0;
+}
+.report-table span {
+  padding: 0;
+  margin: 0;
+  margin-right: 0.2em;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+.cont {
+  position: fixed;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+}
+
+.game {
+  width: 95svmin;
+}
+
+.initbox {
+  margin: 2svmin;
+  font-size: 0.8rem;
+}
+.initbox select {
+  border: 1px solid silver;
+}
+
+
+.kihu {
+  white-space: pre-wrap;
+  height: 25svh;
+  width: 90%;
+  padding: 0 1rem;
+  line-height: 1.4;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid silver;
+  overflow: scroll;
+  font-size: 0.7rem;
+}
+
+.kihu h2 {
+  line-height: 1;
+  border-left: 0.5rem solid black;
+  padding-left: 0.4em;
+  padding-bottom: 0;
+}
+.kihu h4 {
+  line-height: 1;
+  border-left: 0.3rem solid black;
+  padding-left: 0.4em;
+  padding-bottom: 0;
+}
+
+input[type="range"] {
+  width: 90px;
+}

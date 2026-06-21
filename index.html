@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./favicon-32x32.png">
+    <link rel="stylesheet" href="./style.css">
+    <title>はちみつくまさん</title>
+    <script type="module" src="./gui.js"></script>
+  </head>
+  <body>
+    <div class="cont">
+      <div class="game">
+        <div class="kihu" id="kifu">
+■<b>はちみつくまさん</b>の遊び方
+
+　はちみつくまさん（Honey Bears）はドイツのゲームデザイナー Reiner Knizia 氏が発明したレースゲームです。
+　３人から５人までプレイでき、手番は４色の手札をプレイしてボード上の対応する色のくまを前進させます。いずれかのくまがゴールに到達したとき、すべてのプレイヤーは自分の残り手札に応じた勝利点を得ます。
+　人数と同じだけディールを繰り返し、累計で最も多くの勝利点を得たプレイヤーがゲームに勝利します。
+
+
+■使う道具
+　スタートからゴールまで１４マスのすごろくがあり、各マスには -1 から +3点の価値が書かれています。４色のくまがスタート位置に置かれます。
+　ボードの他に合計５５枚のカードを使います。カードには５色あり、それぞれランク１が６枚、ランク２が５枚の１１枚で構成されています。うち１色はワイルドカードです。
+
+
+■ディール
+　すべてのくまは最初に左端（<b style="color:red">-1点</b>）のスタート位置に置かれ、以降、右に前進させていくと０，１，２……と価値を上昇させます。誰よりも早くゴールしたくまは<b style="color:red">３点</b>の価値を持つことができます。
+
+　全員に参加人数に応じた手札（３人: １５枚、４人: １３枚、５人: １１枚）が配られます。配り残しのカードはこのディール（今の手札を配りなおすまでのこと）では使いません。
+
+　乱数で決められたスタートプレイヤーからプレイをはじめます。以降、スタートプレイヤーはディールごとに席順で変わります。
+
+
+■プレイ
+　手番プレイヤーは手札から好きな１枚を出します。パスはできません。
+　プレイしたのと同じ色のくまが、カードの<b>ランク</b>(１か２)だけ右に進みます。ワイルドカードをプレイしたときはどの色としてプレイするかを宣言し、その色のくまをワイルドカードのランクだけ前進させます。なお、各プレイヤーによってプレイされたカードはいつでも確認できます（ルールによると、確認できなければなりません）。
+　前進させた結果、いずれかのくまが３点のマスに到達したら<b style="color: red">即座にディール終了</b>となり、下記の得点計算に移ります。
+
+
+■得点計算
+　すべてのプレイヤーは自分の手札を公開し、次のように得点します。
+
+　　・くまを３点のマスに進めたプレイヤー……ボーナスとして<b style="color: red">６点</b>を得ます。
+
+　　・手札のワイルドカード……ランクに関わらず<b style="color: red">０点</b>です。
+　　・各色の「２」……その色のくまがいる場所（マイナス１〜プラス３点）の<b style="color: red">２倍</b>。
+　　・各色の「１」……その色のランク１の枚数を２で割ります。
+　　　商（２で割り切れた数）と余りについて以下のように得点します。
+
+　　　　　・商 × その色のくまの点 × <b style="color: red">５</b>
+　　　　　・余り × その色のくまの点
+
+　　　　要するに、手持ちの<b>ランク１のペア</b>につき、その色のくまの<b style="color: red">５倍</b>を得点できます。
+　　　　そのくまがマイナス１点の位置に居たらもちろん<b style="color: red">マイナス５点</b>です。
+
+　　・得点の合計が０より小さくなってしまった場合は０点を得たものとします。
+　　　他のディールで得た点から差し引かれることはありません。
+
+　得点を計算したら席順でスタートプレイヤーを交代して次のディールを始めます。
+
+
+●オプションルール：急げハリネズミ
+　針鼠のチェックを有効にすると得点方式が次のように変化します。
+
+　・ワイルドカード……０点。
+　・その他のカード……<b style="color:red">ランクによらず</b>その色のくまの点。
+　・ゴールしたひと……３点。
+
+
+■ゲームの終わり
+　全員がスタートプレイヤーを務めたあと最も得点したプレイヤーの勝ちです。
+　<b style="color:red">同点だった場合</b>は、最後のディールで最も得点したプレイヤーの勝ちになります。それすら同点だった場合は——残念ながら参考元の英語ルールに記述が無いため、このアプリでは「同点だったプレイヤー全員の勝ち」としています。
+
+
+■アプリの操作
+　最初に参加人数を選んで「START」を押します。推奨人数は５人です。
+　赤いカードはＡ、青はＳ、緑はＤ、茶色はＦ、点線のワイルドカードは好きな色のくまを前進させます。
+
+　対戦相手は８戦略×４＝３２名から乱数で選ばれます。
+　敵プレイヤーは名前に使われている文字コードから８種類の戦略を取るようにプログラムされていて、同じ名前なら同じような行動を取ります。ただし、うち４名は乱数で他の２８人のモノマネをします。
+
+　なお、このプログラムは不正をしません。プログラムはあなただけに不利な手札を配ったりしませんし、ＣＰＵに有利な手札を配ったり、ＣＰＵたちが結託してあなただけを追い詰めることもありません。というか、ＣＰＵは超ポンコツで他人のプレイに応じた手を打つことができません(ver 0.0.1時点)。
+　CPUのすべての動作は XorShift 疑似乱数だけで決定されているので、あるシード値に対してあなたが同じ行動をするならゲームの結果は常に同じです。
+
+　シード値（１以上の整数）を指定したい場合はTUI版をご利用ください。Node.js(ver.21を想定) をインストールしている環境なら、次のコマンドで使用方法を表示します。
+
+        <font color="green">$ cd [プログラムをコピーしたフォルダ]</font>
+        <font color="green">$ node tui.js -h</font>
+
+</div>
+        <table class="board">
+          <thead>
+            <tr>
+              <th scope="col" colspan="14" id="msg_box">
+                Honey Bears
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="bear_tr0">
+              <td class="bearRed"></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr id="bear_tr1">
+              <td class="bearBlue"></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr id="bear_tr2">
+              <td class="bearGreen"></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr id="bear_tr3">
+              <td class="bearYellow"></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="col" colspan="7">-1</th>
+              <th scope="col" colspan="2">0</th>
+              <th scope="col" colspan="2">1</th>
+              <th scope="col" colspan="2">2</th>
+              <th scope="col">3</th>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="initbox">
+          <select id="nplayers">
+            <option value="3">３人</option>
+            <option value="4">４人</option>
+            <option value="5" selected>５人</option>
+          </select>
+          <button id="game_start">START</button>
+          <label for="wait_speed">速さ</label>
+          <input type="range" id="wait_speed" min="100" max="5000" step="10" value="500">
+          <input type="checkbox" id="is_hedgehogs">
+          <label for="is_hedgehogs">針鼠</label>
+        </div>
+        <div class="player-hands" id="player_hand_area"></div>
+      </div>
+    </div>
+    <dialog id="wild_sel_modal" class="wild-sel-modal">
+      <p>どの色として使いますか？</p>
+      <form method="dialog">
+        <p>
+          <button value="0" formmethod="dialog" class="card red">?<br></button>
+          <button value="1" formmethod="dialog" class="card blue">?<br></button>
+          <button value="2" formmethod="dialog" class="card green">?<br></button>
+          <button value="3" formmethod="dialog" class="card yellow">?<br></button>
+        </p>
+        <p><button value="-1" formmethod="dialog">✖︎ やめる</button></p>
+      </form>
+    </dialog>
+    <dialog id="score_dlg">
+      <details open>
+        <summary>ダイアログを隠す/表示する</summary>
+        <div class="score-dlg-cont">
+          <div id="score_msg" class="score-msg"></div>
+          <form method="dialog">
+            <button value="-1" formmethod="dialog">✖︎ 閉じる</button>
+          </form>
+        </div>
+      </details>
+    </dialog>
+  </body>
+</html>
+
+

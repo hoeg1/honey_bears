@@ -9,9 +9,10 @@
 
 　ローカル実行は node.js をインストールした上でシェルから:
 
-'''bash
-[path to dir] $ node tui.js -h
-'''
+```bash
+$ cd [path to dir]
+$ node tui.js -h
+```
 
 ## ライセンス
 

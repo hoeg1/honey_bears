@@ -5,9 +5,7 @@
 
 ## 実行
 
-　オンラインは次のリンクから:
-
-PLAY link
+　[オンラインでプレイ](https://hoeg1.github.io/honey_bears/)
 
 　ローカル実行は node.js をインストールした上でシェルから:
 

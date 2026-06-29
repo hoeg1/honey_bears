@@ -1,6 +1,10 @@
 
 /* 🐻 */
 
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .bearRed { color: crimson;}
 .bearRed:before { content: "A"; }
 .bearBlue { color: mediumblue; }
